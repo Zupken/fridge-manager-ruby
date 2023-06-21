@@ -1,0 +1,8 @@
+<h1>Elementy nieobecne w lodówce:</h1>
+<ul>
+  <% @not_in_fridge_items.each do |list_item| %>
+    <li>
+      <%= list_item.name %>
+    </li>
+  <% end %>
+</ul>
