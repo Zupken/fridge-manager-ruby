@@ -1,4 +1,5 @@
 class ListItemsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_list_item, only: %i[ show edit update destroy ]
   def not_in_fridge
     @not_in_fridge_items = ListItem.find_by_sql("
