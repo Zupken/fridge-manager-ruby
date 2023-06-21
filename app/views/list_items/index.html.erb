@@ -1,14 +1,56 @@
-<p style="color: green"><%= notice %></p>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
 
-<h1>List items</h1>
+  h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
 
-<div id="list_items">
-  <% @list_items.each do |list_item| %>
-    <%= render list_item %>
-    <p>
-      <%= link_to "Show this list item", list_item %>
-    </p>
-  <% end %>
+  .list-item {
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .list-item-name {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .list-item-delete-link {
+    color: #dc3545;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+</style>
+
+<p style="color: green;"><%= notice %></p>
+
+<div class="container">
+  <h1 class="mb-4">Shopping List</h1>
+
+  <div class="row">
+    <% @list_items.each do |list_item| %>
+      <div class="col-md-4">
+        <div class="list-item">
+          <div class="list-item-name"><%= list_item.name %></div>
+          <%= link_to list_item_path(list_item), method: :delete, data: { confirm: "Are you sure you want to delete this item?" }, class: "list-item-delete-link" do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "New list item", new_list_item_path, class: "btn btn-primary" %>
 </div>
-
-<%= link_to "New list item", new_list_item_path %>

@@ -1,8 +1,8 @@
-<h1>Elementy nieobecne w lodówce:</h1>
-<ul>
-  <% @not_in_fridge_items.each do |list_item| %>
-    <li>
-      <%= list_item.name %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>Shopping list:</h1>
+  <ul class="list-group">
+    <% @not_in_fridge_items.each do |list_item| %>
+      <li class="list-group-item"><%= list_item.name %></li>
+    <% end %>
+  </ul>
+</div>

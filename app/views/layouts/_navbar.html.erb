@@ -1,13 +1,31 @@
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <%= link_to "Articles", articles_path, :class => "nav-link" %>
-	<span class="navbar-text">
-	  <% if user_signed_in? %>
-	    <div> Welcome <%= current_user.email %> </div>
-	    <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-	  <% else %>
-	    <%= button_to "Sign in", new_user_session_path %>
-	  <% end %>
-	</span>
-    </nav>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <%= link_to "Fridge manager", articles_path, class: "navbar-brand" %>
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to "Fridge", food_items_path, class: "nav-link mr-3" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Basic items", list_items_path, class: "nav-link mr-3" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Shopping list", not_in_fridge_list_items_path, class: "nav-link mr-3" %>
+        </li>
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <span class="nav-link mr-3">Welcome <%= current_user.email %></span>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+          <% else %>
+            <%= button_to "Sign in", new_user_session_path, class: "btn btn-primary" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
