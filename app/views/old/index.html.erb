@@ -1,0 +1,10 @@
+<h1>Lista artykułów w lodówce:</h1>
+<%= link_to "Dodaj nowy artykuł", new_food_item_path %>
+<ul>
+  <% @food_items.each do |food_item| %>
+    <li>
+      <%= food_item.name %>
+      <%= link_to "Usuń", food_item_path(food_item), method: :delete, data: { confirm: "Czy na pewno chcesz usunąć ten artykuł?" } %>
+    </li>
+  <% end %>
+</ul>

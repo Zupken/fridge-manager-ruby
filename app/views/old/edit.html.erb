@@ -1,0 +1,11 @@
+<h1>Edytuj artykuł:</h1>
+<%= form_with(model: @food_item, url: food_item_path(@food_item), method: :patch) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Zapisz zmiany" %>
+  </div>
+<% end %>

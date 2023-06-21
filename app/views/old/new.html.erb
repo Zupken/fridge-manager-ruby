@@ -1,0 +1,11 @@
+<h1>Dodaj nowy artykuł:</h1>
+<%= form_with(model: @food_item, url: food_items_path, method: :post) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Dodaj" %>
+  </div>
+<% end %>
